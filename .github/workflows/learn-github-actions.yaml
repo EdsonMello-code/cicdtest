@@ -23,8 +23,8 @@ jobs:
 
 
         run: |
-          echo $KEYSTORE | base64 --decode > android/app/teste.keystore
-          echo $KEYPROPERTIES | base64 --decode > android/key.properties
+          echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
+          echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
           cat android/key.properties
           ls .
 
