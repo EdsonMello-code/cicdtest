@@ -20,14 +20,16 @@ jobs:
         env:
           KEYPROPERTIES: ${{ secrets.KEYPROPERTIES }}
           KEYSTORE: ${{ secrets.KEYSTORE }}
+          teste: "teste"
 
 
-        run: |
-          echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
-          echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
-          cat android/key.properties
-          ls .
+          run:  echo "nossa keystore $KEYSTORE e $KEYPROPERTIES e $teste"
+          # echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
+          # echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
+          # cat android/key.properties
+          # ls .
 
+         
 
 
       - name: Run Flutter pub get
