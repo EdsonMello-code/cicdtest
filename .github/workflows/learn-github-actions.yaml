@@ -23,7 +23,7 @@ jobs:
           teste: "teste"
 
 
-          run:  echo "nossa keystore $KEYSTORE e $KEYPROPERTIES e $teste"
+        run:  echo "nossa keystore $KEYSTORE e $KEYPROPERTIES e $teste"
           # echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
           # echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
           # cat android/key.properties
