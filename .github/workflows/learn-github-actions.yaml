@@ -20,6 +20,9 @@ jobs:
         run: echo ${{ secrets.KEYSTORE }} | base64 --decode > android/app/teste.keystore
       - name: Get properties
         run: echo ${{ secrets.KEYPROPERTIES }} | base64 --decode > android/key.properties
+      - name:  Print properties
+        run: echo ${{ secrets.KEYPROPERTIES }} && cat android/key.properties && ls .
+
       - name: Run Flutter pub get
         run: flutter pub get
 
