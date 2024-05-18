@@ -24,8 +24,7 @@ platform :android do
   desc "Submit a new Beta Build to Crashlytics Beta"
   lane :beta do
     gradle(task: "clean assembleRelease")
-
-    crashlytics
+    # crashlytics
 
     # sh "your_script.sh"
     # You can also use other beta testing services here
@@ -35,7 +34,7 @@ platform :android do
   lane :deploy do
     sh("cd .. && flutter build appbundle --release")
     upload_to_play_store(
-      track: 'internal',
+      track: 'production',
       aab: '../build/app/outputs/bundle/release/app-release.aab', # Update this path if your AAB is generated in a different location
       skip_upload_apk: true,
       skip_upload_images: true,
@@ -44,5 +43,6 @@ platform :android do
       skip_upload_changelogs: true,
       skip_upload_aab: false,
     )
+
   end
 end
