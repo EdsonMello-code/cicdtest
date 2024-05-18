@@ -36,11 +36,11 @@ jobs:
       - name: Run Flutter build
         run: flutter build apk
       
-      - name: Archive the build
-        uses: actions/upload-artifact@v4
-        with:
-          name: android-build
-          path: build/app/outputs/apk/release/app-release.apk
+      # - name: Archive the build
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: android-build
+      #     path: build/app/outputs/apk/release/app-release.apk
       - name: Upload store google  
         env:
             GOOGLE_PLAY_CREDENTIALS_JSON: ${{ secrets.GOOGLE_PLAY_CREDENTIALS_JSON }}
