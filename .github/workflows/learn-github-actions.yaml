@@ -7,7 +7,7 @@ on:
 
 jobs:
   build_android:
-  
+
     runs-on: ubuntu-latest
     environment: 
       name: teste
@@ -29,11 +29,6 @@ jobs:
         run: |
           echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
           echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
-          cat android/key.properties
-          ls .
-
-         
-
 
       - name: Run Flutter pub get
         run: flutter pub get
@@ -46,7 +41,15 @@ jobs:
         with:
           name: android-build
           path: build/app/outputs/apk/release/app-release.apk
+      - name: Upload store google  
+        env:
+            GOOGLE_PLAY_CREDENTIALS_JSON: ${{ secrets.GOOGLE_PLAY_CREDENTIALS_JSON }}
+        run: |
+          echo "$GOOGLE_PLAY_CREDENTIALS_JSON" | base64 --decode > android/google_api_key.json
+        - uses: actions/checkout@v2
+        - run: fastlane deploy
 
+         
 
 
   

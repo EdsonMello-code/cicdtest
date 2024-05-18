@@ -29,7 +29,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace "com.example.cicdtest"
+    namespace "com.makkerapp.lanterna2"
     compileSdk flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
 
