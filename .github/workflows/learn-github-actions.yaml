@@ -51,6 +51,12 @@ jobs:
           commit_user_name: "EdsonMello-code"
           commit_user_email: "edsonmelo754@gmail.com"
           file_pattern: "pubspec.yaml"
+
+      - name: Create new tag
+        uses: anothrNick/github-tag-action@v1.12.2
+        with:
+          tag: ${{ steps.version.outputs.NEW_VERSION }}
+          message: 'New version ${{ steps.version.outputs.NEW_VERSION }}'
           
 
       # - name: Run Flutter pub get
