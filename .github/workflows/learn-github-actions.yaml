@@ -56,7 +56,6 @@ jobs:
         uses: anothrNick/github-tag-action@v1
         with:
           tag: ${{ steps.version.outputs.NEW_VERSION }}
-          message: 'New version ${{ steps.version.outputs.NEW_VERSION }}'
           CUSTOM_TAG: 'v${{ steps.version.outputs.NEW_VERSION }}'
           
 
