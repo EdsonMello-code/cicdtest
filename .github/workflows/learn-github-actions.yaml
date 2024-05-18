@@ -47,6 +47,7 @@ jobs:
           GOOGLE_PLAY_CREDENTIALS_JSON: ${{ secrets.GOOGLE_PLAY_CREDENTIALS_JSON }}
         run: |
           echo "$GOOGLE_PLAY_CREDENTIALS_JSON" | base64 --decode > android/google_api_key.json
+          cd android
           fastlane deploy
 
          
