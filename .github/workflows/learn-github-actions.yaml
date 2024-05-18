@@ -57,9 +57,6 @@ jobs:
         with:
           tag: ${{ steps.version.outputs.NEW_VERSION }}
           message: 'New version ${{ steps.version.outputs.NEW_VERSION }}'
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          DEFAULT_BUMP: patch
-          RELEASE_BRANCHES: main
           
 
       # - name: Run Flutter pub get
