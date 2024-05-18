@@ -41,11 +41,15 @@ jobs:
           echo ${{ steps.version.outputs.OLD_VERSION }}
           echo ${{ steps.version.outputs.NEW_VERSION }}
       - name: "Commit version"
-        run: |
-          git config --global user.email "edsonmelo754@gmail.com"
-          git config --global user.name "EdsonMello-code"
-          git add ${GITHUB_WORKSPACE}/pubspec.yaml
-          git commit -m "Increment version to ${{ steps.version.outputs.NEW_VERSION }}"
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Bump version to ${{ steps.version.outputs.NEW_VERSION }}"
+          commit_options: '--no-verify'
+          commit_user_name: "EdsonMello-code"
+          commit_user_email: "edsonmelo754@gmail.com"
+          commit_author: "EdsonMello-code <"
+          file_pattern: "pubspec.yaml"
+          
 
       # - name: Run Flutter pub get
       #   run: flutter pub get
