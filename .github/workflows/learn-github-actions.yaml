@@ -15,23 +15,23 @@ jobs:
       # Give the default GITHUB_TOKEN write permission to commit and push the changed files back to the repository.
       contents: write
     steps:
-      # - name: Get Repository
-      #   uses: actions/checkout@v2
+      - name: Get Repository
+        uses: actions/checkout@v2
   
-      # - name: Setup Flutter SDK
-      #   uses: subosito/flutter-action@v2
-      #   with:
-      #     channel: stable
-      # - name: Get keystore
-      #   env:
-      #     KEYPROPERTIES: ${{ secrets.KEYPROPERTIES }}
-      #     KEYSTORE: ${{ secrets.KEYSTORE }}
-      #     teste: "teste"
+      - name: Setup Flutter SDK
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - name: Get keystore
+        env:
+          KEYPROPERTIES: ${{ secrets.KEYPROPERTIES }}
+          KEYSTORE: ${{ secrets.KEYSTORE }}
+          teste: "teste"
 
 
-      #   run: |
-      #     echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
-      #     echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
+        run: |
+          echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
+          echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
 
       - name: "Retrieve version"
         id: version
