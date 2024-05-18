@@ -1,62 +1,3 @@
-# name: learn-github-actions
-# run-name: Run ${{ github.actor }} is learning GitHub Actions
-# on: 
-#   push:
-#     branches:
-#       - main
-
-# jobs:
-#   build_android:
-
-#     runs-on: ubuntu-latest
-#     environment: 
-#       name: teste
-#     steps:
-#       - name: Get Repository
-#         uses: actions/checkout@v2
-  
-#       - name: Setup Flutter SDK
-#         uses: subosito/flutter-action@v2
-#         with:
-#           channel: stable
-#       - name: Get keystore
-#         env:
-#           KEYPROPERTIES: ${{ secrets.KEYPROPERTIES }}
-#           KEYSTORE: ${{ secrets.KEYSTORE }}
-#           teste: "teste"
-
-
-#         run: |
-#           echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
-#           echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
-
-#       - name: Run Flutter pub get
-#         run: flutter pub get
-
-#       - name: Run Flutter build
-#         run: flutter build apk
-      
-#       # - name: Archive the build
-#       #   uses: actions/upload-artifact@v4
-#       #   with:
-#       #     name: android-build
-#       #     path: build/app/outputs/apk/release/app-release.apk
-#       - name: Upload store google  
-#         env:
-#             GOOGLE_PLAY_CREDENTIALS_JSON: ${{ secrets.GOOGLE_PLAY_CREDENTIALS_JSON }}
-#         run: |
-#           echo "$GOOGLE_PLAY_CREDENTIALS_JSON" | base64 --decode > android/google_api_key.json
-#         - uses: actions/checkout@v2
-#         - run: fastlane deploy
-
-         
-
-
-  
-      
-
-
-  
 name: learn-github-actions
 run-name: Run ${{ github.actor }} is learning GitHub Actions
 on: 
@@ -66,7 +7,7 @@ on:
 
 jobs:
   build_android:
-  
+
     runs-on: ubuntu-latest
     environment: 
       name: teste
@@ -85,14 +26,9 @@ jobs:
           teste: "teste"
 
 
-        run:  echo "nossa keystore $KEYSTORE e $KEYPROPERTIES e $teste"
-          # echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
-          # echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
-          # cat android/key.properties
-          # ls .
-
-         
-
+        run: |
+          echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
+          echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
 
       - name: Run Flutter pub get
         run: flutter pub get
@@ -105,6 +41,70 @@ jobs:
         with:
           name: android-build
           path: build/app/outputs/apk/release/app-release.apk
+      - name: Upload store google  
+        env:
+            GOOGLE_PLAY_CREDENTIALS_JSON: ${{ secrets.GOOGLE_PLAY_CREDENTIALS_JSON }}
+        run: |
+          echo "$GOOGLE_PLAY_CREDENTIALS_JSON" | base64 --decode > android/google_api_key.json
+        - uses: actions/checkout@v2
+        run: fastlane deploy
+
+         
+
+
+  
+      
+
+
+  
+# name: learn-github-actions
+# run-name: Run ${{ github.actor }} is learning GitHub Actions
+# on: 
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   build_android:
+  
+#     runs-on: ubuntu-latest
+#     environment: 
+#       name: teste
+#     steps:
+#       - name: Get Repository
+#         uses: actions/checkout@v2
+  
+#       - name: Setup Flutter SDK
+#         uses: subosito/flutter-action@v2
+#         with:
+#           channel: stable
+#       - name: Get keystore
+#         env:
+#           KEYPROPERTIES: ${{ secrets.KEYPROPERTIES }}
+#           KEYSTORE: ${{ secrets.KEYSTORE }}
+#           teste: "teste"
+
+
+#         run:  echo "nossa keystore $KEYSTORE e $KEYPROPERTIES e $teste"
+#           # echo "$KEYSTORE" | base64 --decode > android/app/teste.keystore
+#           # echo "$KEYPROPERTIES" | base64 --decode > android/key.properties
+#           # cat android/key.properties
+#           # ls .
+
+         
+
+
+#       - name: Run Flutter pub get
+#         run: flutter pub get
+
+#       - name: Run Flutter build
+#         run: flutter build apk
+      
+#       - name: Archive the build
+#         uses: actions/upload-artifact@v4
+#         with:
+#           name: android-build
+#           path: build/app/outputs/apk/release/app-release.apk
 
 
 
